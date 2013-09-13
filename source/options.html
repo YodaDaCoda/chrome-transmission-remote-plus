@@ -97,13 +97,13 @@
 				<fieldset>
 					<legend>Location</legend>
 					<div class="options">
-						<input id="dldefault" name="dlocation" type="radio" onclick="document.getElementById('dlpopup').disabled = false;" />
+						<input id="dldefault" name="dlocation" type="radio" />
 						<label for="dldefault">Always use the default directory</label><br />
 						<blockquote>
 							<input id="dlpopup" type="checkbox" />
 							<label for="dlpopup">Show download popup</label><br />
 						</blockquote>
-						<input id="dlcustom" name="dlocation" type="radio" onclick="document.getElementById('dlpopup').disabled = true;" />
+						<input id="dlcustom" name="dlocation" type="radio" />
 						<label for="dlcustom">Choose a custom directory</label><br />
 						<table id="customdirs">
 							<tr>
@@ -115,7 +115,7 @@
 								<td><input id="customlabel" class="label" type="text" /></td>
 								<td><input id="customdir" class="dir" type="text" /></td>
 								<td>
-									<button id="adddir" onclick="addDir(document.getElementById('customlabel').value, document.getElementById('customdir').value);">Add</button>
+									<button id="adddir">Add</button>
 								</td>
 							</tr>
 						</table>

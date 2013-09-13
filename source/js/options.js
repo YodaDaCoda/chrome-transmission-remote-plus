@@ -166,5 +166,17 @@ $(function() {
 	$("#save").bind("click", save);
 	$("#user,#pass").bind("focus", function(){this.type = 'text';});
 	$("#user,#pass").bind("blur", function(){this.type = 'password';});
-	
+});
+
+
+$(function() {
+	$('#dldefault').bind("click", function() {
+		document.getElementById('dlpopup').disabled = false;
+	});
+	$('#dlcustom').bind("click", function() {
+		document.getElementById('dlpopup').disabled = true;
+	});
+	$('#adddir').bind("click", function() {
+		addDir(document.getElementById('customlabel').value, document.getElementById('customdir').value);
+	});
 });
