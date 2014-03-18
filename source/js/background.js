@@ -86,7 +86,14 @@ function getTorrent(url) {
 		if (localStorage.dLocation === 'dldefault' && localStorage.dlPopup === 'false') {
 			dlTorrent({ 'url': url });
 		} else {
-			chrome.windows.create({ 'url': 'downloadMagnet.html', 'type': 'popup', 'width': 852, 'height': 138 }, function(window) {
+			chrome.windows.create({
+				'url': 'downloadMagnet.html',
+				'type': 'popup',
+				'width': 852,
+				'height': 138,
+				'left': screen.width/2 - 852/2,
+				'top': screen.height/2 - 138/2
+			}, function(window) {
 				chrome.tabs.sendMessage(window.tabs[0].id, { 'url': url, 'dirs': dirs });
 			});
 		}
@@ -101,9 +108,9 @@ function getTorrent(url) {
 								'url': 'downloadTorrent.html',
 								'type': 'popup',
 								'width': 850,
-								'height': 580,
+								'height': 600,
 								'left': (screen.width/2) - 425,
-								'top': (screen.height/2) - 265,
+								'top': (screen.height/2) - 300,
 							},
 							function(window) {
 								encodeFile(file, function(data) {
