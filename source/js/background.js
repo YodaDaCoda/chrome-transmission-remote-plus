@@ -74,8 +74,12 @@ function rpcTransmission(args, method, tag, callback) {
 		{
 			url: localStorage.server + localStorage.rpcPath,
 			type: 'POST',
-			username: localStorage.user,
-			password: localStorage.pass,
+			beforeSend: function (xhr) {
+					if ( localStorage.user != '')
+					{
+						xhr.setRequestHeader('Authorization ', 'Basic ' + btoa(localStorage.user +':' + localStorage.pass));
+					}
+		   		},
 			headers: {'X-Transmission-Session-Id': localStorage.sessionId},
 			data: '{ "arguments": {' + args + '}, "method": "' + method + '"' + (tag ? ', "tag": ' + tag : '') + '}'
 		}
