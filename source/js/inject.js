@@ -41,4 +41,7 @@ port.onMessage.addListener(function(msg) {
 (function() {
 	// check to see if we should be hijacking torrent links
 	port.postMessage({ 'method': 'checkClick' });
+	document.body.addEventListener('DOMSubtreeModified', function() {
+		port.postMessage({'method': 'checkClick'});
+	}, true);
 })();
