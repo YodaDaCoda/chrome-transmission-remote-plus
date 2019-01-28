@@ -24,7 +24,7 @@ var TORRENT_LINKS = [
 ];
 
 // open up a session with the background page
-var port = chrome.extension.connect({name: 'inject'});
+var port = chrome.runtime.connect({name: 'inject'});
 
 /* =================================================================================
  clickTorrent(event e)

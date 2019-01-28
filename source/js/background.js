@@ -225,7 +225,7 @@ function notificationRefresh() {
 /*
  * receive messages from other parts of the script
  */
-chrome.extension.onConnect.addListener(function (port) {
+chrome.runtime.onConnect.addListener(function (port) {
   switch (port.name) {
     case 'popup':
       port.onMessage.addListener(function (msg) {
@@ -291,7 +291,7 @@ chrome.extension.onConnect.addListener(function (port) {
 /**
  * recieve message to send torrent to transmission
  */
-chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.method === 'get-torrent-info') {
     sendResponse(torrentInfo[request.page]);
   } else {

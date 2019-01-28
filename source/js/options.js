@@ -1,5 +1,5 @@
 // communication port with background page
-var port = chrome.extension.connect({name: 'options'});
+var port = chrome.runtime.connect({name: 'options'});
 
 // add custom download directory to table
 /* =================================================================================

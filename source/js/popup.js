@@ -1,7 +1,7 @@
 // global variables
 var torrents = [];  // array of displayed torrents
 var refresh;    // variable that holds refreshPopup() timeout
-var port = chrome.extension.connect({name: 'popup'});
+var port = chrome.runtime.connect({name: 'popup'});
 
 const TAG_BASELINE    = 1;
 const TAG_UPDATE    = 2;
