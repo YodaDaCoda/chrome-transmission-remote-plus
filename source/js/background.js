@@ -62,7 +62,7 @@ function rpcTransmission(args, method, tag, callback) {
     }
   })
   .fail(function (jqXHR, textStatus, errorThrown) {
-    if (errorThrown === 'Conflict') {
+    if (jqXHR.status == 409 || errorThrown === 'Conflict') {
       // X-Transmission-Session-Id should only be included if we didn't include it when we sent our request
       let xSid = jqXHR.getResponseHeader('X-Transmission-Session-Id');
       localStorage.sessionId = xSid;
